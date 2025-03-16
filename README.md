@@ -50,3 +50,20 @@ def run(data):
 Agora que meu modelo foi implantado, o próximo passo foi testar o ponto de extremidade criado para garantir que ele estivesse funcionando corretamente.
 - Obtendo a URL do ponto de extremidade: No painel de Endpoints, cliquei no nome do serviço implantado e copiei a URL.
 - Testando com Python: Para testar, criei um script Python que envia os dados para o ponto de extremidade e recebe as previsões.
+
+📡 Testando o Ponto de Extremidade
+Após a implantação do modelo, obtive a URL do ponto de extremidade e criei um script Python para testar a API:
+
+```
+import requests
+import json
+
+url = 'https://<endpoint-url>/score'
+
+data = {
+    "features": [[1.5, 2.3], [3.1, 4.7]]
+}
+
+response = requests.post(url, json=data)
+print(response.json())
+```
